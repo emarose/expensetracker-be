@@ -67,8 +67,8 @@ Response Example:
 export const getAllExpenses = async (req: Request, res: Response): Promise<void> => {
   try {
     const { property, year, month } = req.query;
-
     const query: any = {};
+
     if (property) {
       query.property = property;
     }
@@ -84,43 +84,6 @@ export const getAllExpenses = async (req: Request, res: Response): Promise<void>
   } catch (err) {
     if (err instanceof Error) {
       res.status(500).json({ error: err.message });
-    } else {
-      res.status(500).json({ error: 'An unexpected error occurred' });
-    }
-  }
-};
-
-// Get expenses by year and month
-/* 
-Endpoint: GET /api/expenses/2024/8
-Response Example:
-[
-  {
-    "_id": "64d6344e2f31deafef5b51d4",
-    "property": "depto",
-    "date": "2024-08-11T00:00:00.000Z",
-    "year": 2024,
-    "month": 8,
-    "amount": 500,
-    "category": "Compras",
-    "description": "Compras Carrefour",
-    "paidBy": "Ema",
-    "paymentMethod": "Efectivo",
-    "__v": 0
-  }
-]
-*/
-export const getExpensesByYearAndMonth = async (req: Request, res: Response): Promise<void> => {
-  const year = parseInt(req.params.year, 10);
-  const month = parseInt(req.params.month, 10);
-
-  try {
-    const expenses = await Expense.find({ year, month }).exec();
-
-    res.status(200).json(expenses);
-  } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ error: error.message });
     } else {
       res.status(500).json({ error: 'An unexpected error occurred' });
     }

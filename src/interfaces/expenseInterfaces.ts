@@ -1,10 +1,11 @@
 import { Document } from 'mongoose';
 
 export interface IExpense extends Document {
-  property: string;
+  property?: string;
   date: Date;
   amount: number;
-  category: string;
+  type: string;
+  category?: string;
   description?: string;
   paidBy: string;
   paymentMethod: string;

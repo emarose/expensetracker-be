@@ -8,9 +8,6 @@ router.post('/expenses', expenseController.createExpense);
 // Get all expenses
 router.get('/expenses', expenseController.getAllExpenses);
 
-// Get expenses by year and month
-router.get('/expenses/:year/:month', expenseController.getExpensesByYearAndMonth);
-
 // Get total expenses by property
 router.get('/expenses/totals/byProperty', expenseController.getTotalExpensesByProperty);
 
