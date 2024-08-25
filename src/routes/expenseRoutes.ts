@@ -20,4 +20,4 @@ router.put('/expenses/:id', expenseController.updateExpenseById);
 // Delete an expense by ID
 router.delete('/expenses/:id', expenseController.deleteExpenseById);
 
-module.exports = router;
+export default router;

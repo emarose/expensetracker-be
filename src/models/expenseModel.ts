@@ -5,7 +5,7 @@ const expenseSchema = new mongoose.Schema({
   property: { type: String, required: false },
   category: { type: String, required: false },
   paidBy: { type: String, required: true },
-  paymentMethod: { type: String, required: true },
+  paymentMethod: { type: String, required: false },
   date: { type: Date, required: true },
   description: { type: String, required: false },
   amount: { type: Number, required: true },
